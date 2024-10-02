@@ -1,19 +1,14 @@
-date_string = str(input('Введите дату формата "DD.MM", с которой необходимо провести анализ (date): '))  # Получаем дату
-result = "определена как"  # Подготавливаем результат
-if date_string.find('.') == 0:
-    pass
+day = int(input("Введите день (day): "))  # Получаем день
+month = int(input("Введите месяц (month): "))  # Получаем месяц
+result = "определена как "  # Объявляем конструктор
+if 1 <= day <= 31 and month == 3 or 1 <= day <= 30 and month == 4 or 1 <= day <= 31 and month == 5:  # Проверяем
+    result += "Весна"  # Изменяем конструктор
+elif 1 <= day <= 30 and month == 6 or 1 <= day <= 31 and month == 7 or 1 <= day <= 31 and month == 7:
+    result += "Лето"
+elif 1 <= day <= 30 and month == 9 or 1 <= day <= 31 and month == 10 or 1 <= day <= 30 and month == 11:
+    result += "Осень"
+elif 1 <= day <= 31 and month == 12 or 31 >= day >= 1 == month or 1 <= day <= 28 and month == 2:
+    result += "Зима"
 else:
-    date_date = date_string.split(".")  # Получаем массив, состоящий из дня и месяца
-    date_int = int(date_date[1])  # Превращаем месяц в число
-    if date_int == 1 or date_int == 2 or date_int == 12:  # Определяем время года
-        date_string = "Зима"
-    elif 3 <= date_int <= 5:
-        date_string = "Весна"
-    elif 6 <= date_int <= 8:
-        date_string = "Лето"
-    elif 9 <= date_int <= 11:
-        date_string = "Осень"
-    else:
-        date_string = "Возникло исключение."  # Обработка исключения
-        result = f"не {result} какое-либо время года."
-print(f"Указанная дата {result} {date_string}")  # Выводим результат
+    result = "не " + result + "какой-либо сезон года."  # Обрабатываем исключение, изменяем конструктор
+print(f"Введенная дата {result} ")  # Выводим собранную строку.
